@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>DayW by Tuoot</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animations.css">
+	<link rel="stylesheet" href="css/air-datepicker.css">
+	<!-- modal styles were merged into style.css -->
+</head>
+<body>
+	<div class="logo">
+		<span class="logo-char">D</span>
+		<span class="logo-char">a</span>
+		<span class="logo-char">y</span>
+		<span class="logo-char">W</span>
+		<span class="logo-char">&nbsp;</span>
+		<span class="logo-char">V</span>
+		<span class="logo-char">4</span>
+		<span class="logo-char">.</span>
+		<span class="logo-char">5</span>
+		<span class="logo-char">1</span>
+
+    <div class="credit" aria-hidden="true">by Tuoot</div>
+	</div>
+
+	<main>
+		<section class="all" id="anchous" aria-label="Главное меню">
+			<p style="font-size:15px; text-align:center; margin:0 0 8px 0">Период</p>
+			<div style="display:flex; gap:8px; justify-content:center; margin-bottom:8px">
+				<input id="date1" class="datefield" type="text" name="start">
+				<span style="align-self:center">—</span>
+				<input id="date2" class="datefield" type="text" name="end">
+			</div>
+
+			<div class="checkbox" style="text-align:left;">
+				<p style="font-size:15px; text-align:center; margin:0 0 8px 0">Дни недели</p>
+				<p><label><input type="checkbox" id="mon"> Понедельник</label></p>
+				<p><label><input type="checkbox" id="tue"> Вторник</label></p>
+				<p><label><input type="checkbox" id="wed"> Среда</label></p>
+				<p><label><input type="checkbox" id="thu"> Четверг</label></p>
+				<p><label><input type="checkbox" id="fri"> Пятница</label></p>
+				<p><label><input type="checkbox" id="sat"> Суббота</label></p>
+				<p><label><input type="checkbox" id="sun"> Воскресенье</label></p>
+			</div>
+
+			<div style="margin-top:10px">
+				<button class="button" onclick="calculate()">Получить результат</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- scripts at end for faster paint -->
+	<script src="js/air-datepicker.js"></script>
+	<script src="js/result.js"></script>
+	<script>
+		// initialize datepickers after scripts loaded
+		try {
+			window.datepicker1 = new AirDatepicker('#date1');
+			window.datepicker2 = new AirDatepicker('#date2');
+		} catch (e) {
+			// if air-datepicker isn't available yet, ignore — calculate() has guards
+			console.debug('AirDatepicker init failed (will be retried if needed):', e);
+		}
+	</script>
+</body>
+</html>

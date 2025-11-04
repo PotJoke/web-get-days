@@ -1,0 +1,220 @@
+:root {
+
+    --color-bg-primary: #1a1c1e;
+    --color-bg-secondary: #282c34;
+    --color-accent-primary: #6b8afd;
+    --color-accent-secondary: #4a5fe4;
+    
+    --color-text-primary: #e4e6eb;
+    --color-text-secondary: #b0b3b8;
+    
+    --color-card-bg: #282c34;
+    --color-input-bg: #3a3f4b;
+    --color-input-border: #4a5261;
+    --color-button-gradient: linear-gradient(90deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+    --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-bg-primary);
+    background-image: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--color-text-primary);
+}
+
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: #fff;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    text-shadow:
+        0 8px 32px rgba(75, 90, 120, 0.55),
+        0 2px 8px rgba(0,0,0,0.45),
+        2px 2px 4px rgba(0,0,0,0.2);
+    z-index: 20; 
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.logo-char {
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+    letter-spacing: -10px
+}
+
+.logo-char:nth-child(1) { animation-delay: 0.0s; }
+.logo-char:nth-child(2) { animation-delay: 0.1s; }
+.logo-char:nth-child(3) { animation-delay: 0.2s; }
+.logo-char:nth-child(4) { animation-delay: 0.3s; }
+.logo-char:nth-child(5) { animation-delay: 0.4s; }
+.logo-char:nth-child(6) { animation-delay: 0.5s; }
+.logo-char:nth-child(7) { animation-delay: 0.6s; }
+.logo-char:nth-child(8) { animation-delay: 0.7s; }
+.logo-char:nth-child(9) { animation-delay: 0.8s; }
+.logo-char:nth-child(10) { animation-delay: 0.9s; }
+
+.all {
+    position: fixed;
+    top: calc(50% + 60px); /* leave space for logo */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    background: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px var(--color-shadow);
+    z-index: 10;
+    animation: fadeIn 0.28s ease-out forwards;
+}
+
+.all p { 
+    margin: 8px 0;
+    color: var(--color-text-primary);
+}
+
+.checkbox { 
+    font-size: 15px;
+    color: var(--color-text-secondary);
+}
+
+.datefield { 
+    width: 46%; 
+    box-sizing: border-box; 
+    padding: 6px; 
+    border-radius: 4px; 
+    border: 1px solid var(--color-input-border);
+    background: var(--color-input-bg);
+    color: var(--color-text-primary);
+}
+
+/* Buttons */
+.button, .copy-button, .close-button {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+.button, .copy-button {
+    width: 100%;
+    text-align: center;
+    background: var(--color-button-gradient);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.button:hover, .copy-button:hover { 
+    transform: scale(1.03); 
+    opacity: 0.95; 
+}
+
+.close-button { 
+    background: var(--color-button-gradient);
+}
+
+.modal-result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px var(--color-shadow);
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out forwards;
+    width: min(560px, calc(100% - 48px));
+}
+
+.modal-result h3 { 
+    margin: 0 0 16px 0; 
+    font-family: 'Arial Black', Gadget, sans-serif; 
+    color: var(--color-text-primary);
+}
+
+.modal-result p {
+    margin: 8px 0;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: var(--color-input-bg);
+    color: var(--color-text-primary);
+    animation: slideIn 0.36s ease-out forwards;
+}
+
+.modal-result p:hover { 
+    background: var(--color-accent-primary);
+    opacity: 0.1;
+}
+
+.format-select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin: 12px 0; }
+
+.button-group { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }
+
+.copy-button { padding: 8px 16px; }
+.close-button { padding: 8px 16px; }
+
+.fade-out { animation: fadeOut 0.28s ease-out forwards; }
+
+.success-copy {
+    position: fixed; top: 20px; right: 20px; z-index: 1010;
+    background: rgba(46,204,113,0.95); color: #fff; padding: 10px 16px; border-radius: 6px; font-family: Arial; animation: slideIn 0.3s ease-out forwards;
+}
+
+.modal-result::-webkit-scrollbar { width: 8px; }
+.modal-result::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.modal-result::-webkit-scrollbar-thumb { background: linear-gradient(90deg, rgba(33,71,255,0.8), rgba(0,255,248,0.8)); border-radius: 4px; }
+
+@media (max-width: 480px) {
+    .logo { font-size: 36px; top: 12px; }
+    .all { width: calc(100% - 32px); top: calc(50% + 48px); }
+    .datefield { width: 100%; margin-bottom: 8px; }
+    .button-group { flex-direction: column-reverse; }
+}
+
+.logo { /* ensure positioning context */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: #fff;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    text-shadow:
+        0 8px 32px rgba(75, 90, 120, 0.55),
+        0 2px 8px rgba(0,0,0,0.45),
+        2px 2px 4px rgba(0,0,0,0.2);
+    z-index: 20; 
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.logo .credit {
+    position: absolute;
+    right: -14px;
+    bottom: 5px;
+    transform: rotate(-28deg) scaleX(1);
+    z-index: 22;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 22px;
+    color: var(--color-accent-secondary);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06) inset;
+    padding: 0;
+    pointer-events: none;
+    letter-spacing: 1px;
+    animation: pulse 1.6s ease-in-out infinite;
+    will-change: transform, text-shadow, opacity;
+}
